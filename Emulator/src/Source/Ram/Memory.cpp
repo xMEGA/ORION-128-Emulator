@@ -10,7 +10,7 @@ void Memory_t::Reset( void ) //TODO: delete allocations
 
     SwitchPage( ORION_MEMORY_PAGE0 );
     Erase();
- }
+}
 
 uint8_t* Memory_t::GetMemoryPointer( void )
 {

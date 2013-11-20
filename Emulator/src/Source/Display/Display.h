@@ -11,6 +11,7 @@ struct PixelStruct_t
     uint8_t Blue;
 };
 
+
 class Display_t
 {
     public:

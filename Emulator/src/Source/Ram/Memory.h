@@ -12,6 +12,7 @@
 #define ORION_BIOS_SIZE         2048
 #define ORION_BIOS_START_ADDR   0xF800
 
+
 enum MemoryPage_t
 {
     ORION_MEMORY_PAGE0 = 0,

@@ -47,7 +47,7 @@ void Display_t::Present( PixelStruct_t* pData )
         
 void Display_t::DrawPixel( uint16_t xPos, uint16_t yPos, uint8_t red, uint8_t green, uint8_t blue )
 {
-    uint32_t* bufp = (uint32_t *)m_pSurface->pixels + yPos * m_pSurface->pitch / 4 + xPos; 
+    uint32_t* bufp  = (uint32_t *)m_pSurface->pixels + yPos * m_pSurface->pitch / 4 + xPos; 
     uint32_t  color = SDL_MapRGB( m_pSurface->format, red, green, blue ); 
     *bufp = color; 
 }
