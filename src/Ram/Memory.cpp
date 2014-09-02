@@ -1,7 +1,7 @@
 #include "Memory.h"
 #include <memory.h>
 
-void Memory_t::Reset( void ) //TODO: delete allocations
+void Memory_t::Reset( void )
 {
     m_pRamTable[ ORION_MEMORY_PAGE0 ] = new uint8_t [ ORION_MEMORY_SIZE_PAGE0 ];
     m_pRamTable[ ORION_MEMORY_PAGE1 ] = new uint8_t [ ORION_MEMORY_SIZE_PAGE1 ];
@@ -10,7 +10,7 @@ void Memory_t::Reset( void ) //TODO: delete allocations
 
     SwitchPage( ORION_MEMORY_PAGE0 );
     Erase();
-}
+ }
 
 uint8_t* Memory_t::GetMemoryPointer( void )
 {
