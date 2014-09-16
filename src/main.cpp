@@ -35,6 +35,8 @@ void PresentFrameCallBack( void* pContext, uint8_t* pData, uint16_t lineNumber )
 #ifdef __WIN32__
 #include <windows.h>
 int WINAPI WinMain( HINSTANCE hInst, HINSTANCE hPrev, LPSTR szCmdLine, int sw )
+#else
+int main()
 #endif
 {
     m_Display.Init( 384, 256 );

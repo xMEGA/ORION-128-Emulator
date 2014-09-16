@@ -28,3 +28,8 @@ private
 
 #Temporary directories
 build/
+core
+dist
+Debug
+Release
+desktop.ini
