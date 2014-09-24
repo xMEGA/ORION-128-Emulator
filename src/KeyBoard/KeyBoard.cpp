@@ -1,13 +1,13 @@
-﻿#include "KeyBoard.h"
+#include "KeyBoard.h"
 
 void KeyBoard_t::PressKey( uint8_t scanCode )
 {
-	m_PressedKeys = scanCode;
+    m_PressedKeys = scanCode;
 }
 
 void KeyBoard_t::UnPressKey( uint8_t scanCode )
 {
-	m_PressedKeys = 0;//scanCode;
+    m_PressedKeys = 0;//scanCode;
 }
 
 void KeyBoard_t::Write( uint16_t addr, uint8_t data )
@@ -109,7 +109,23 @@ uint8_t KeyBoard_t::PpiPortRead( void* pContext, PpiPortAddr_t port )
     return retValue;
 }
 
+//0b11111011 0b11111110 //0
+//0b11111011 0b11111101 //1
+//0b11111011 0b11111011 //2
+//0b11111011 0b11110111 //3
+//0b11111011 0b11101111 //4
+//0b11111011 0b11011111 //5
+//0b11111011 0b10111111 //6
+//0b11111011 0b01111111 //7
 
+//0b1111101101111111
+
+//0b1111110111011111 - Vertical tab up
+//0b1111110101111111 - Vertical tab down      
+//0b1111011110111111 - Enter
+//0b1110111111111110 - @
+//0b0111111110111111 - /\
+0b0111111101111111 - пробел
 uint16_t ScanCode[ ] = 
 {
     0xFFFF, //0 nul ^@ Нуль
@@ -120,12 +136,15 @@ uint16_t ScanCode[ ] =
     0xFFFF, //5 enq ^E Запрос ♣
     0xFFFF, //6 ack ^F Подтверждение ♠
     0xFFFF, //7 bel ^G Сигнал (звонок) •
-    0xFFFF, //8 bs ^H Забой (шаг назад) ◘
-    0xFFFF, //9 ht ^I Горизонтальная табуляция ○
+    0b0111111101111111, //8 bs ^H Забой (шаг назад) ◘   0b1111110111101111 !!!
+    //00000000
+    0xFDFE, //9 Tab - success
     0xFFFF, //10 lf ^J Перевод строки ◙
-    0xFFFF, //11 vt ^K Вертикальная табуляция ♂
+    0xFDFD, //11 vt ^K Вертикальная табуляция ♂
     0xFFFF, //12 ff ^L Новая страница ♀
-    0xFFFF, //13 cr ^M Возврат каретки ♪
+    0b1111110111111011,//0xFB01, //13 (0b11111011 0b11110111) Enter 0xFBBF (0b11111011 0b10111111) 
+    //00000000 
+    
     0xFFFF, //14 so ^N Выключить сдвиг ♫
     0xFFFF, //15 si ^O Включить сдвиг ☼
     0xFFFF, //16 dle ^P Ключ связи данных ►
@@ -144,7 +163,7 @@ uint16_t ScanCode[ ] =
     0xFFFF, //29 gs ^] Разделитель группы ↔
     0xFFFF, //30 rs ^^ Разделитель записей ▲
     0xFFFF, //31 us ^_ Разделитель модулей ▼
-    0xFFFF, //32 пробел 
+    0xFEF7, //32 пробел --success 
     0xFFFF, //33 ! 
     0xFFFF, //34 “ 
     0xFFFF, //35 # 

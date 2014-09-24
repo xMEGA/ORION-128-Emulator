@@ -3,12 +3,12 @@
 
 void Orion_t::PressKey( uint8_t scanCode )
 {
-	m_KeyBoard.PressKey( scanCode );
+    m_KeyBoard.PressKey( scanCode );
 }
 
 void Orion_t::UnPressKey( uint8_t scanCode )
 {
-	m_KeyBoard.UnPressKey( scanCode );
+    m_KeyBoard.UnPressKey( scanCode );
 }
 
 void Orion_t::SetPresentLineCallBack( void* pContext, PresentLineCallBack_t presentLineCallBack )
@@ -20,8 +20,10 @@ void Orion_t::Reset()
 {   
     m_Memory.Reset();
   
-    LoadBios("../../../bin/romo.bin");
-	//LoadBios("../../../bin/TEST256.BIN");
+    LoadBios("../../../bin/M1rk.bin");
+    //LoadBios("../../../bin/ALMAZ-3.bru");
+
+    //LoadBios("../../../bin/TEST256.BIN");
     
 
     m_Cpu.SetBusWriteCallBack ( this, CpuBusWrite );
