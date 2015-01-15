@@ -66,6 +66,8 @@ int main()
 			{
 				uint8_t key = sdlEvent.key.keysym.sym;
 			
+                                //uint8_t code = sdlEvent.key.keysym.scancode;
+                                
 				if( ( key >= SDLK_a ) && ( key <= SDLK_z ) )
 				{
 					key -= 32;
@@ -103,6 +105,7 @@ int main()
 		}
 
 		m_Orion.RunFrame();
+                SDL_Delay( 0 );
 	}
 
 	atexit(SDL_Quit); 
