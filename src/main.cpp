@@ -21,7 +21,8 @@ void PresentFrameCallBack( void* pContext, uint8_t* pData, uint16_t lineNumber )
     {
         for( uint16_t idx = 0; idx != 384; idx ++ )
         {
-            m_Display.DrawPixel( idx, lineNumber, pData[0 ], pData[ 1  ], pData[ 2 ] );
+			//m_Display.GetFrameBuffer();
+            m_Display.DrawPixel( idx, lineNumber, pData[ 0 ], pData[ 1  ], pData[ 2 ] );
             pData += 3;
         }
     }
@@ -39,7 +40,7 @@ int WINAPI WinMain( HINSTANCE hInst, HINSTANCE hPrev, LPSTR szCmdLine, int sw )
 int main()
 #endif
 {
-    m_Display.Init( 384, 256 );
+    m_Display.Init( 384, 256, false );
 
     m_Orion.SetPresentLineCallBack( 0, PresentFrameCallBack );
     m_Orion.Reset();
